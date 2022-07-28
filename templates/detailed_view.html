@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{% recipe_title %}</title>
+    <title>{% block recipe_title %}{% endblock %}</title>
     <!-- <style>
         #recipe {
             align-items: center;
@@ -19,13 +19,12 @@
 </head>
 
 <body>
-    <h2>{% recipe_title %}</h2>
+    <h2>{{ recipe_title }}</h2>
     <img src="{{image}}">
-    <p>{% tags %}</p>
-    <span>{% description %}</span>
+    <p>tags: {% for tag in tags%} {{ tag }}, {% endfor %}</p>
+    {{ description|safe }}
 
-    <p>{% chef %}</p>
-    
+    <p>Chef: {{ chef }}</p>
 </body>
 
 </html>

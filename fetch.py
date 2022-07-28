@@ -1,8 +1,9 @@
 import contentful as cf
 import json
 from flask import Flask, render_template
+import markdown as md
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 
 def get_credentials() -> dict:
@@ -16,43 +17,45 @@ def get_credentials() -> dict:
     return client
 
 
-# @app.route("/")
+@app.route("/")
 def get_all_recipes() -> list:
     client = get_credentials()
     recipes = [
-        (x.title, client.asset(x.photo.id).url())
+        (x.title, client.asset(x.photo.id).url(), x.id)
         for x in client.entries({"content_type": "recipe"})
     ]
 
-    print(recipes)
-
-    # return render_template("recipes.html", recipes=recipes)
+    return render_template("recipes.html", recipes=recipes)
 
 
-# @app.route("/<name>")
-def get_detailed_view(name=None):
+@app.route("/<id>")
+def get_detailed_view(id=None):
     client = get_credentials()
-    entry_id = list(
-        filter(
-            lambda x: x.title == name,
-            [entry for entry in client.entries({"content_type": "recipe"})],
-        )
-    )[0].id
-    target_entry = client.entry(entry_id)
 
-    print(
-        # target_entry.title,
-        # [a.name for a in target_entry.tags],
-        # target_entry.items()
-        [x for x in client.entries({"content_type": "chef"})][0].metadata
-        # target_entry.description,
-        # target_entry.name,
+    # Get the specific entry we want, using the ID
+    target_entry = client.entry(id)
+
+    # Flask was complaining that tags was uninitialized, so we init it here
+    tags = []
+
+    # This JSON schema isn't identical across entries, so we account for some possible errors here
+    try:
+        chef = target_entry.fields()['chef'].name
+        tags = [tag.name for tag in target_entry.tags]
+    except KeyError:
+        chef = "Chef name unavailable!"
+    except AttributeError:
+        tags = ["No tags available!"]
+
+    return render_template(
+        "detailed_view.html", 
+        recipe_title=target_entry.title, 
+        tags=tags, 
+        image=client.asset(target_entry.photo.id).url(),
+        description=md.markdown(target_entry.description),
+        chef=chef
     )
-
-    # render_template("detailed_view.html", recipe_title=target_entry.title, tags=target_entry.tags, )
 
 
 if __name__ == "__main__":
-    # app.run(debug=True)
-    # get_all_recipes()
-    get_detailed_view("White Cheddar Grilled Cheese with Cherry Preserves & Basil")
+    app.run(debug=True)
