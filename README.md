@@ -1,6 +1,6 @@
 # Marley Spoon Technical Interview
 
-To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](127.0.0.1:5000/) in your eb browser of choice
+To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](127.0.0.1:5000/) in your browser of choice
 
 I've also included a virtual environment with all of the python modules and the version of python that I used for this project. They are, in no particular order:
 
