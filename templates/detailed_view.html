@@ -3,25 +3,18 @@
 
 <head>
     <title>{% block recipe_title %}{% endblock %}</title>
-    <!-- <style>
-        #recipe {
+    <style>
+        body {
             align-items: center;
-            width: 200px;
-            height: 125px;
-            margin: 20px;
-            border-radius: 14px;
-            box-shadow: 0px 0px 5px grey;
-            position: relative;
-            white-space: normal;
         }
 
-    </style> -->
+    </style>
 </head>
 
 <body>
     <h2>{{ recipe_title }}</h2>
     <img src="{{image}}">
-    <p>tags: {% for tag in tags%} {{ tag }}, {% endfor %}</p>
+    <p>tags: {% for tag in tags%} {{ tag }} {% endfor %}</p>
     {{ description|safe }}
 
     <p>Chef: {{ chef }}</p>
