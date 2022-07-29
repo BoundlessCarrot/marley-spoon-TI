@@ -1,13 +1,19 @@
 # Marley Spoon Technical Interview
 
-To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser of choice
-
-I've also included a virtual environment (msti) with all of the python modules and the version of python that I used for this project. They are, in no particular order:
+I've included a virtual environment (msti) with all of the python modules and the version of python that I used for this project. They are, in no particular order:
 
 1. [Python](https://www.python.org/downloads/release/python-395/) 3.9.5
 2. [Contentful](https://pypi.org/project/contentful/) 1.13.1
 3. [Flask](https://pypi.org/project/Flask/) 2.1.3
 4. [Markdown](https://pypi.org/project/Markdown/) 3.4.1
+
+If you'd prefer to create your own virtual environment:
+
+1. Create the venv -> `python3 -m venv [your desired venv name]`
+2. Activate the venv -> `source [your desired venv name]/bin/activate`
+3. Install the requirements -> `pip install -r requirements.txt`
+
+To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser of choice
 
 ## Notes
 
