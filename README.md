@@ -13,7 +13,7 @@ If you'd prefer to create your own virtual environment:
 2. Activate the venv -> `source [your desired venv name]/bin/activate`
 3. Install the requirements -> `pip install -r requirements.txt`
 
-To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser of choice
+Then, to run this application, simply run `python3 fetch.py` (from within the venv), and navigate to [127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser of choice
 
 ## Notes
 
