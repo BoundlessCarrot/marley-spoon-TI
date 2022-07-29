@@ -1,6 +1,6 @@
 # Marley Spoon Technical Interview
 
-To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](127.0.0.1:5000/) in your browser of choice
+To run this application, simply run `python3 fetch.py`, and navigate to [127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser of choice
 
 I've also included a virtual environment with all of the python modules and the version of python that I used for this project. They are, in no particular order:
 
@@ -16,3 +16,11 @@ I've also included a virtual environment with all of the python modules and the 
 * Currently, it seems that some recipes have a chef or tags entry while others don't. I decided to give the truth to the frontend in these cases - these portions of the webpage will simply read "Chef name unavailable!" or "No tags available!", respectively. In terms of personal philosophy/design, I'd rather display _incomplete_ information than guess at a chef or tags and display _incorrect_ information
 * I would've liked to use `async` to grab data from the API and make the whole thing faster (I also remember reading about a sync function in the contentful module) but I didn't want to mess with it considering the time pressure. If I had more time, I would definitely try to figure that out either first or second
 * Finally, just for fun, you guys almost got a very frustrating and unreadable lambda function to resolve an ID from the name of a recipe (just as a string)! I'm very happy I figured out how to change it to something much better and easier to understand, but if you want to check it out it should be in one of the past (the first 2) commits :-)
+
+## Possible issues
+
+* White Cheddar Grilled Cheese has no Chef
+* Tofu Saag Paneer has no Chef or Tags
+* Grilled Steak & Vegetables has no Tags
+* Crispy Chicken and Rice works completely fine - this tells me the logic isn't necessarily broken, but the information either isn't there or is obscured somehow. If this isn't the expectedbehavir, please let me know!
+* [Email me](mailto:jordan.streete@gmail.com)
