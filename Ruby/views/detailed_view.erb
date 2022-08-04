@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block recipe_title %}{% endblock %}</title>
+    <style>
+        body {
+            align-items: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>{{ recipe_title }}</h2>
+    <img src="{{image}}">
+    <p>tags: {% for tag in tags%} {{ tag }} {% endfor %}</p>
+    {{ description|safe }}
+
+    <p>Chef: {{ chef }}</p>
+</body>
+
+</html>

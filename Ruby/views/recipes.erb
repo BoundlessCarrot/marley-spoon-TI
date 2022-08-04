@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipes</title>
+    <style>
+        #recipe {
+            align-items: center;
+            width: 200px;
+            height: 125px;
+            margin: 20px;
+            border-radius: 14px;
+            box-shadow: 0px 0px 5px grey;
+            position: relative;
+            white-space: normal;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <%# {% block content %} %>
+        <%= for recipe, image, id in @recipes =%>
+        <flex id="recipe" ;>
+            <div>
+                <img src="<image>">
+            </div>
+            <a href="/<id>"><%= recipe =%></a>
+            <br>
+        </flex>
+        <% endfor %>
+        <%# # <% endblock % %>
+    </div>
+</body>
+
+</html>
